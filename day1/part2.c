@@ -5,7 +5,7 @@
 int main() {
     printf("AoC 2021 Day 1 Solution (Part 2)\n");
 
-    // Reading all of the depths from file
+    // Reading all of the lines from file
     // (Taken from part 1)
     int depths[2000];
 
