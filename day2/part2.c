@@ -3,6 +3,11 @@
 #include <assert.h>
 #include <string.h>
 
+/**
+ * part2 is just part1 with slightly different
+ * calculations, so i just pasted part1 into this
+ */
+
 // Instruction opcodes
 #define FORWARD 0
 #define DOWN 1
@@ -16,6 +21,7 @@ struct instruction {
 int main() {
     int horizontal_pos = 0;
     int depth_pos = 0;
+    int aim = 0;
 
     // Our array of instructions should have a length of 1000
     // because there are 1000 lines in the input file
@@ -67,12 +73,13 @@ int main() {
         switch (insn.opcode) {
             case FORWARD:
                 horizontal_pos += insn.amount;
+                depth_pos += aim * insn.amount;
                 break;
             case UP:
-                depth_pos -= insn.amount;
+                aim -= insn.amount;
                 break;
             case DOWN:
-                depth_pos += insn.amount;
+                aim += insn.amount;
                 break;
         }
     }
