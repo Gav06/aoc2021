@@ -55,7 +55,7 @@ int main() {
         printf("%d %s\n", measure, text);
     }
 
-    printf("The numer was increased %d times.", larger);
+    printf("The numvbr was increased %d times.", larger);
 
     return 0;
 }
