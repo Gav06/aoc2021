@@ -9,8 +9,8 @@ int main() {
     char line_buffer[256];
 
     // first 6 are for gamma, second 6 are for epsilon
-    int *common_nums;
-    common_nums = (int*) calloc(12, sizeof(int));
+    int *ones;
+    ones = (int*) calloc(12, sizeof(int));
 
     int gamma_rate = 0;
     int epsilon_rate = 0;
@@ -18,28 +18,26 @@ int main() {
     while (fgets(line_buffer, sizeof(line_buffer), file) != NULL) {
         for (int i = 0; i < 12; i++) {
             if (line_buffer[i] == '1') {
-                common_nums[i]++;
-            } else {
-                common_nums[i] += 0;
+                ones[i]++;
             }
-            // printf("%c", line_buffer[i]);
         }
-        // printf("\n");
     }
     fclose(file);
+    free(file);
 
-    // setting gamma rate based on bits
-    for (int i = 0; i < 6; i++) {
-        // 501 - 1000
-        gamma_rate |= common_nums[i] > 500 ? (1 >> (i + 1)) : (0 >> (i + 1));
+    for (int i = 0; i < 12; i++) {
+        if (i < 6) {
+            // gamma calcs
+
+        } else {
+            // epsilon calcs
+
+        }
     }
 
-    for (int i = 6; i < 12; i++) {
-        printf("%d ", i);
-    }
-    printf("\n");
+    free(ones);
 
-    printf("Gamma: %d Epsilon %d\n");
+    printf("Gamma: %d Epsilon: %d\n", gamma_rate, epsilon_rate);
     printf("Result: %d\n", gamma_rate * epsilon_rate);
     return 0;
 }
